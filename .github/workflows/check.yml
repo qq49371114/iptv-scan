@@ -1,0 +1,47 @@
+name: TV check
+
+on:
+  schedule:
+    - cron: "35 2 * * *"
+
+jobs:
+  run_tv_detection:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x
+
+    - name: Install FFmpeg and FFprobe
+      run: |
+        sudo apt-get update
+        sudo apt-get install ffmpeg
+        sudo apt-get install ffprobe
+
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt  # 如果有依赖需求，请将其添加到 requirements.txt 文件中
+
+    - name: Run TV Ckeck
+      run: python ${{ github.workspace }}/check_iptv.py  # 替换为你的Python文件的名称
+      
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v4.0.0
+      with:
+        name: iptv-all
+        path: ${{ github.workspace }}/
+
+    - name: 提交更改
+      run: |
+        git config --local user.email "pantong1995@126.com"
+        git config --local user.name "xiaotong1995"
+        git add .
+        git commit *.txt -m "Add generated file"
+        #git pull --rebase
+        git push -f
