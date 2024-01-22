@@ -27,7 +27,7 @@ jobs:
         mkdir ffprobe
         wget https://johnvansickle.com/ffmpeg/builds/ffmpeg-git-amd64-static.tar.xz
         tar xvf ffmpeg-git-*-static.tar.xz && rm -rf ffmpeg-git-*-static.tar.xz
-        mv ffmpeg-git-*/ffmpeg  ffmpeg-git-*/ffprobe /usr/bin/
+        sudo mv ffmpeg-git-*/ffmpeg  ffmpeg-git-*/ffprobe /usr/bin/
         #curl -L -o ffprobe/ffprobe https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/ffmpeg/7:6.1.1-1ubuntu1/ffmpeg_6.1.1.orig.tar.xz
         #tar -xJf ffprobe/ffprobe -C ffprobe/
         #chmod +x ffprobe/ffprobe
