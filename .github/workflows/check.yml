@@ -25,10 +25,9 @@ jobs:
     - name: Download FFprobe
       run: |
         mkdir ffprobe
-        curl -L -o ffprobe/ffprobe https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz
-        tar -xJf ffprobe/ffprobe -C ffprobe/
+        curl -L -o ffprobe/ffprobe https://launchpad.net/ubuntu/+source/ffmpeg
         chmod +x ffprobe/ffprobe
-        sudo mv ffprobe/ffprobe /usr/local/bin/
+        sudo mv ffprobe/ffprobe /usr/local/bin/  # 将FFprobe移动到系统路径
         
     - name: Debug info
       run: |
