@@ -25,7 +25,8 @@ jobs:
     - name: Download FFprobe
       run: |
         mkdir ffprobe
-        curl -L -o ffprobe/ffprobe https://ffmpeg.org/releases/ffmpeg-6.1.1.tar.xz
+        curl -L -o ffprobe/ffprobe https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/ffmpeg/7:6.1.1-1ubuntu1/ffmpeg_6.1.1.orig.tar.xz
+        tar -xJf ffprobe/ffprobe -C ffprobe/
         chmod +x ffprobe/ffprobe
         sudo mv ffprobe/ffprobe /usr/local/bin/  # 将FFprobe移动到系统路径
         
