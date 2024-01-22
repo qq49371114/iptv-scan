@@ -39,5 +39,5 @@ def get_resolution_from_file(file_path):
         print(f"文件 '{file_path}' 未找到")
 
 # 替换为你的M3U8文件路径
-m3u8_file_path = '${{ github.workspace }}/IPTV.txt'
+m3u8_file_path = 'IPTV.txt'
 get_resolution_from_file(m3u8_file_path)
