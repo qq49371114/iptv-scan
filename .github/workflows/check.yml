@@ -25,9 +25,16 @@ jobs:
     - name: Download FFprobe
       run: |
         mkdir ffprobe
-        curl -L -o ffprobe/ffprobe https://example.com/path/to/ffprobe
+        curl -L -o ffprobe/ffprobe https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz
+        tar -xJf ffprobe/ffprobe -C ffprobe/
         chmod +x ffprobe/ffprobe
-        sudo mv ffprobe/ffprobe /usr/local/bin/  # 将FFprobe移动到系统路径
+        sudo mv ffprobe/ffprobe /usr/local/bin/
+        
+    - name: Debug info
+      run: |
+        pwd
+        ls -la
+        ffprobe -version
 
     - name: Install Python dependencies
       run: |
