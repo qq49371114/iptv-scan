@@ -22,11 +22,12 @@ jobs:
       with:
         python-version: 3.x
 
-    - name: Install FFmpeg and FFprobe
+    - name: Download FFprobe
       run: |
-        sudo apt-get update
-        sudo apt-get install ffmpeg
-        sudo apt-get install ffprobe
+        mkdir ffprobe
+        curl -L -o ffprobe/ffprobe https://example.com/path/to/ffprobe
+        chmod +x ffprobe/ffprobe
+        sudo mv ffprobe/ffprobe /usr/local/bin/  # 将FFprobe移动到系统路径
 
     - name: Install Python dependencies
       run: |
