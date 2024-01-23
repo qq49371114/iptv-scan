@@ -6,7 +6,12 @@ on:
       - cron: "16 16 * * *"
     branches:
       - main
-      
+  workflow_dispatch:
+    inputs:
+      logLevel:
+      description: 'Log level'
+      required: true
+      default: 'warning'
 permissions:
   contents: write
   
