@@ -2,7 +2,7 @@ name: IPTV All
 
 on:
     schedule:
-      - cron: "16 16 * * *"
+      - cron: "16 4,16 * * *"
     push:
       branches:
         - main
