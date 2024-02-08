@@ -7,7 +7,7 @@ import re
 
 hebei = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iSGViZWki"        #河北
 beijing = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iYmVpamluZyI%3D"   #北京
-guangdong = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iZ3Vhbmdkb25nIg%3D%3D"    #广东
+#guangdong = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iZ3Vhbmdkb25nIg%3D%3D"    #广东
 #shanghai = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0ic2hhbmdoYWki"    #上海
 #tianjin = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0idGlhbmppbiI%3D"    #天津
 #chongqing = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iY2hvbmdxaW5nIg%3D%3D"    #重庆
@@ -53,7 +53,7 @@ def process_url(url):
         try:
             # 发送GET请求获取JSON文件，设置超时时间为5秒
             json_url = f"{url}/iptv/live/1000.json?key=txiptv"
-            response = requests.get(json_url, timeout=3)
+            response = requests.get(json_url, timeout=10)
             json_data = response.json()
 
             # 解析JSON文件，获取name和url字段
@@ -124,8 +124,8 @@ results_beijing = process_url(beijing)
 save_results(results_beijing, "beijing.txt")
 
 # 处理第3个URL
-results_guangdong = process_url(guangdong)
-save_results(results_guangdong, "guangdong.txt")
+#results_guangdong = process_url(guangdong)
+#save_results(results_guangdong, "guangdong.txt")
 
 # 处理第4个URL
 #results_shanghai = process_url(shanghai)
