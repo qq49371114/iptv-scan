@@ -5,12 +5,13 @@ import requests
 import json
 import re
 
+heilongjiang = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iaGVpbG9uZ2ppYW5nIg%3D%3D"    #黑龙江
 hebei = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iSGViZWki"        #河北
 beijing = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iYmVpamluZyI%3D"   #北京
-#guangdong = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iZ3Vhbmdkb25nIg%3D%3D"    #广东
-#shanghai = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0ic2hhbmdoYWki"    #上海
-#tianjin = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0idGlhbmppbiI%3D"    #天津
-#chongqing = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iY2hvbmdxaW5nIg%3D%3D"    #重庆
+guangdong = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iZ3Vhbmdkb25nIg%3D%3D"    #广东
+shanghai = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0ic2hhbmdoYWki"    #上海
+tianjin = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0idGlhbmppbiI%3D"    #天津
+chongqing = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iY2hvbmdxaW5nIg%3D%3D"    #重庆
 #shanxi = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0ic2hhbnhpIg%3D%3D"    #山西
 shaanxi = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iU2hhYW54aSI%3D"    #陕西
 #liaoning = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0ibGlhb25pbmci"    #辽宁
@@ -117,6 +118,10 @@ def save_results(results, filename):
             print(result)
 
 # 处理第1个URL
+results_heilongjiang = process_url(heilongjiang)
+save_results(results_heilongjiang, "heilongjiang.txt")
+
+# 处理第1个URL
 results_hebei = process_url(hebei)
 save_results(results_hebei, "hebei.txt")
 
@@ -125,20 +130,20 @@ results_beijing = process_url(beijing)
 save_results(results_beijing, "beijing.txt")
 
 # 处理第3个URL
-#results_guangdong = process_url(guangdong)
-#save_results(results_guangdong, "guangdong.txt")
+results_guangdong = process_url(guangdong)
+save_results(results_guangdong, "guangdong.txt")
 
 # 处理第4个URL
-#results_shanghai = process_url(shanghai)
-#save_results(results_shanghai, "shanghai.txt")
+results_shanghai = process_url(shanghai)
+save_results(results_shanghai, "shanghai.txt")
 
 # 处理第5个URL
-#results_tianjin = process_url(tianjin)
-#save_results(results_tianjin, "tianjin.txt")
+results_tianjin = process_url(tianjin)
+save_results(results_tianjin, "tianjin.txt")
 
 # 处理第6个URL
-#results_chongqing = process_url(chongqing)
-#save_results(results_chongqing, "chongqing.txt")
+results_chongqing = process_url(chongqing)
+save_results(results_chongqing, "chongqing.txt")
 
 # 处理第7个URL
 #results_shanxi = process_url(shanxi)
@@ -190,7 +195,7 @@ save_results(results_henan, "henan.txt")
 
 # 合并文件内容
 file_contents = []
-file_paths = ["hebei.txt", "beijing.txt", "guangdong.txt", "shanghai.txt", "tianjin.txt", "chongqing.txt", "shanxi.txt", "shaanxi.txt", "liaoning.txt", "jiangsu.txt", "zhejiang.txt", "anhui.txt", "fujian.txt", "jiangxi.txt", "shandong.txt", "henan.txt", "hubei.txt", "hunan.txt"]  # 替换为实际的文件路径列表
+file_paths = ["heilongjiang.txt","hebei.txt", "beijing.txt", "guangdong.txt", "shanghai.txt", "tianjin.txt", "chongqing.txt", "shanxi.txt", "shaanxi.txt", "liaoning.txt", "jiangsu.txt", "zhejiang.txt", "anhui.txt", "fujian.txt", "jiangxi.txt", "shandong.txt", "henan.txt", "hubei.txt", "hunan.txt"]  # 替换为实际的文件路径列表
 for file_path in file_paths:
     with open(file_path, 'r', encoding="utf-8") as file:
         content = file.read()
