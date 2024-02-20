@@ -57,7 +57,8 @@ def process_url(url):
             json_data = response.json()
 
             # 解析JSON文件，获取name和url字段
-            for item in json_data['data']:
+            for item in json_data.get('data', []):
+            #for item in json_data['data']:
                 if isinstance(item, dict):
                     name = item.get('name')
                     urlx = item.get('url')
