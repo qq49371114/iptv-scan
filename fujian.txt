@@ -1,3 +1,4 @@
+锦至,http://112.5.146.73:9900http://192.168.10.2:85/home/storager/005de08c-3ce2-46a8-8d2d-d3d2190d764c/public/vod/宣传片/宣传片/jzxcp.mp4?key=txiptv
 CCTV1,http://117.27.190.42:9901/tsfile/live/23232_1.m3u8?key=txiptv&playlive=1&authid=0
 CCTV2,http://117.27.190.42:9901/tsfile/live/23233_1.m3u8?key=txiptv&playlive=1&authid=0
 CCTV3,http://117.27.190.42:9901/tsfile/live/23234_1.m3u8?key=txiptv&playlive=1&authid=0
@@ -70,4 +71,3 @@ CCTV16,http://117.27.190.42:9901/tsfile/live/23249_1.m3u8?key=txiptv&playlive=1&
 福州综合,http://117.27.190.42:9901/tsfile/live/23301_1.m3u8?key=txiptv&playlive=1&authid=0
 莆田综合,http://117.27.190.42:9901/tsfile/live/23302_1.m3u8?key=txiptv&playlive=1&authid=0
 漳州综合,http://117.27.190.42:9901/tsfile/live/23303_1.m3u8?key=txiptv&playlive=1&authid=0
-锦至,http://112.5.146.73:9900http://192.168.10.2:85/home/storager/005de08c-3ce2-46a8-8d2d-d3d2190d764c/public/vod/宣传片/宣传片/jzxcp.mp4?key=txiptv
