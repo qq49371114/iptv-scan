@@ -4,6 +4,7 @@ from selenium.webdriver.chrome.options import Options
 import requests
 import json
 import re
+from security import safe_requests
 
 #heilongjiang = "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iaGVpbG9uZ2ppYW5nIg%3D%3D"    #黑龙江
 
@@ -72,7 +73,7 @@ def process_url(url):
         try:
             # 发送GET请求获取JSON文件，设置超时时间为5秒
             json_url = f"{url}/iptv/live/1000.json?key=txiptv"
-            response = requests.get(json_url, timeout=10)
+            response = safe_requests.get(json_url, timeout=10)
             json_data = response.json()
 
             # 解析JSON文件，获取name和url字段
